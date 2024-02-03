@@ -1,0 +1,5 @@
+# Wireguard settings
+{ ... }:
+{
+
+}

@@ -11,8 +11,14 @@
     # Modules
     inputs.nix-colors.homeManagerModules.default
 
+    # Theming
+    ./theming.nix
+
     # Optionals
     # ./nvim.nix
+  ];
+
+  home.packages = with pkgs; [
   ];
 
   nixpkgs = {
@@ -22,6 +28,7 @@
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
     ];
+
     # Nixpkgs configuration
     config = {
       allowUnfree = true;
@@ -34,8 +41,6 @@
     homeDirectory = "/home/sbk";
   };
 
-  home.packages = with pkgs; [
-  ];
 
   programs.home-manager.enable = true;
   programs.git.enable = true;
