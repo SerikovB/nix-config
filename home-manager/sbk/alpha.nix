@@ -1,24 +1,60 @@
 # Home-manager configuration file
 {
-  inputs,
   outputs,
-  lib,
-  config,
   pkgs,
   ...
 }: {
   imports = [
-    # Modules
-    inputs.nix-colors.homeManagerModules.default
-
-    # Theming
-    ./theming.nix
+    # Settings
+    ./settings-alpha
 
     # Optionals
-    # ./nvim.nix
+    ./optionals/direnv.nix
+    ./optionals/firefox.nix
+    ./optionals/git.nix
+    ./optionals/lf.nix
+    ./optionals/neovim
+    ./optionals/zathura.nix
+
+    # Wayland-specific
+    ./optionals/wayland/foot.nix
+    ./optionals/wayland/hyprland
+    ./optionals/wayland/mako.nix
+    ./optionals/wayland/swayidle.nix
+    ./optionals/wayland/swaylock.nix
+    ./optionals/wayland/waybar.nix
   ];
 
   home.packages = with pkgs; [
+    # Programs
+    bc
+    bottom
+    brightnessctl
+    btop
+    calcurse
+    eza
+    ffmpeg
+    httpie
+    jq
+    mpv
+    ripgrep
+    unrar
+    unzip
+    nix-output-monitor
+    nixfmt
+    nvd
+
+    # Wayland only
+    grim
+    imv
+    mimeo
+    slurp
+    waypipe
+    wev
+    wf-recorder
+    wl-clipboard
+    wl-mirror
+    xwayland
   ];
 
   nixpkgs = {
@@ -40,7 +76,6 @@
     username = "sbk";
     homeDirectory = "/home/sbk";
   };
-
 
   programs.home-manager.enable = true;
   programs.git.enable = true;

@@ -1,14 +1,15 @@
 # Overlays
-{inputs, ...}: {
+{ inputs, ... }: {
   # Add custom packages
-  additions = final: _prev: import ../pkgs {pkgs = final;};
+  additions = final: _prev: import ../pkgs { pkgs = final; };
 
   # Modify packages
-  modifications = final: prev: {
-    # example = prev.example.overrideAttrs (oldAttrs: rec {
-    # ...
-    # });
-  };
+  modifications = final: prev:
+    {
+      # example = prev.example.overrideAttrs (oldAttrs: rec {
+      # ...
+      # });
+    };
 
   # Use pkgs.unstable for unstable packages
   unstable-packages = final: _prev: {

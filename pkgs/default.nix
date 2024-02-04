@@ -1,4 +1,5 @@
 # Custom packages
-pkgs: {
+pkgs:
+{
   # example = pkgs.callPackage ./example { };
 }

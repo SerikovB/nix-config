@@ -7,7 +7,5 @@
       user = "sbk";
     };
   };
-  programs.regreet = {
-    enable = true;
-  };
+  programs.regreet = { enable = true; };
 }

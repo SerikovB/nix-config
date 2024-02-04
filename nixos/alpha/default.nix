@@ -1,9 +1,5 @@
 # System configuration file
-{
-  inputs,
-  outputs,
-  ...
-}: {
+{ inputs, outputs, ... }: {
   # HostName
   networking.hostName = "alpha";
 
@@ -40,6 +36,7 @@
     ../optionals/systemd.nix
     ../optionals/tlp.nix
     ../optionals/xdg.nix
+    ../optionals/zen-kernel.nix
     ../optionals/zsh.nix
   ];
 
@@ -51,9 +48,7 @@
       outputs.overlays.unstable-packages
     ];
     # Nixpkgs config
-    config = {
-      allowUnfree = true;
-    };
+    config = { allowUnfree = true; };
   };
 
   # Enable some programs
