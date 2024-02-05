@@ -1,10 +1,10 @@
 # Firefox browser
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
   programs.firefox = {
     enable = true;
     profiles.sbk = {
       bookmarks = { };
-      extensions = with pkgs.inputs.firefox-addons; [
+      extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
         ublock-origin
         sponsorblock
         istilldontcareaboutcookies

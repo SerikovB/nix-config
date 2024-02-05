@@ -97,7 +97,7 @@ in {
         "custom/power" = { };
       };
     };
-    style = let inherit (config.colorscheme) colors;
+    style = let inherit (config.colorscheme) palette;
     in ''
       * {
         font-family: ${config.fontProfiles.regular.family}, ${config.fontProfiles.monospace.family};
@@ -108,29 +108,29 @@ in {
         background-color: rgba(0, 0, 0, 0);
       }
       #workspaces {
-        background-color: #${colors.base00};
-        border: 2px solid #${colors.base03};
+        background-color: #${palette.base00};
+        border: 2px solid #${palette.base03};
         border-radius: 18px;
         padding: 0 0.5rem;
         opacity: 0.9;
         margin-right: 1rem;
       }
       #workspaces button {
-        color: #${colors.base05};
+        color: #${palette.base05};
       }
       #workspaces button.hidden {
-        color: #${colors.base04};
+        color: #${palette.base04};
       }
       #workspaces button.focused,
       #workspaces button.active {
-        color: #${colors.base0A};
+        color: #${palette.base0A};
       }
 
       #tray,
       #window {
-        color: #${colors.base05};
-        background-color: #${colors.base00};
-        border: 2px solid #${colors.base03};
+        color: #${palette.base05};
+        background-color: #${palette.base00};
+        border: 2px solid #${palette.base03};
         border-radius: 18px;
         padding: 0 1rem;
         opacity: 0.9;
@@ -143,8 +143,8 @@ in {
       #language,
       #pulseaudio,
       #clock {
-        color: #${colors.base05};
-        background-color: #${colors.base00};
+        color: #${palette.base05};
+        background-color: #${palette.base00};
         padding: 0 0.5rem;
         opacity: 0.9;
       }
@@ -152,7 +152,7 @@ in {
       #language {
         border-width: 2px 0 2px 2px;
         border-radius: 18px 0 0 18px;
-        border-color: #${colors.base03};
+        border-color: #${palette.base03};
         border-style: solid;
         padding-left: 1rem;
       }
@@ -163,24 +163,24 @@ in {
       #battery {
         border-width: 2px 0 2px 0;
         border-style: solid;
-        border-color: #${colors.base03};
+        border-color: #${palette.base03};
       }
 
       #clock {
         border-width: 2px 2px 2px 0;
         border-radius: 0 18px 18px 0;
-        border-color: #${colors.base03};
+        border-color: #${palette.base03};
         border-style: solid;
         padding-right: 1rem;
       }
 
       #battery.warning {
-        color: #${colors.base0E};
+        color: #${palette.base0E};
       }
 
       #battery.critical,
       #pulseaudio.muted {
-        color: #${colors.base0F};
+        color: #${palette.base0F};
       }
     '';
   };

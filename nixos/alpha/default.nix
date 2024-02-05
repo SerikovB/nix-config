@@ -1,5 +1,5 @@
 # System configuration file
-{ inputs, outputs, ... }: {
+{ inputs, outputs, pkgs, ... }: {
   # HostName
   networking.hostName = "alpha";
 
@@ -38,7 +38,7 @@
     ../optionals/xdg.nix
     ../optionals/zen-kernel.nix
     ../optionals/zsh.nix
-  ];
+  ] ++ (builtins.attrValues outputs.nixosModules);
 
   nixpkgs = {
     # Overlays

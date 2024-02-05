@@ -1,6 +1,8 @@
 # Neovim text editor
-{ config, ... }: {
+{ inputs, config, ... }: {
   imports = [
+    inputs.nixvim.homeManagerModules.nixvim
+
     ./autocmd.nix
     ./colorconfig.nix
     ./keymaps.nix
@@ -18,7 +20,7 @@
 
     colorschemes.base16 = {
       enable = true;
-      customColorScheme = with config.colorscheme.colors; {
+      customColorScheme = with config.colorscheme.palette; {
         base00 = "#${base00}";
         base01 = "#${base01}";
         base02 = "#${base02}";

@@ -8,12 +8,14 @@
     # Settings
     ./wm-binds.nix
     ./binds.nix
+    ./exec.nix
   ];
 
   home.packages = [
     pkgs.hyprpicker
     pkgs.swww
     inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast
+    pkgs.unstable.libdrm
   ];
 
   wayland.windowManager.hyprland = {
@@ -34,13 +36,13 @@
         gaps_out = 20;
         border_size = 2;
         cursor_inactive_timeout = 4;
-        "col.active_border" = "0xff${config.colorscheme.colors.base03}";
-        "col.inactive_border" = "0xff${config.colorscheme.colors.base01}";
+        "col.active_border" = "0xff${config.colorscheme.palette.base03}";
+        "col.inactive_border" = "0xff${config.colorscheme.palette.base01}";
       };
 
       group = {
-        "col.border_active" = "0xff${config.colorscheme.colors.base03}";
-        "col.border_inactive" = "0xff${config.colorscheme.colors.base01}";
+        "col.border_active" = "0xff${config.colorscheme.palette.base03}";
+        "col.border_inactive" = "0xff${config.colorscheme.palette.base01}";
         groupbar = { font_size = 11; };
       };
 

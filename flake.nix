@@ -16,20 +16,20 @@
     # Hyprland window manager
     hyprland = {
       url = "github:hyprwm/hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     hyprwm-contrib = {
       url = "github:hyprwm/contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
+      inputs.hyprland.follows = "nixpkgs-unstable";
     };
 
     # Neovim
     nixvim = {
-      url = "github:nix-community/nixvim";
+      url = "github:nix-community/nixvim/nixos-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

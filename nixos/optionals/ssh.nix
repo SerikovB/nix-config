@@ -12,7 +12,7 @@ in {
       # Security
       PasswordAuthentication = false;
       PermitRootLogin = "no";
-      RemoveLocalBindUnlink = "yes";
+      StreamLocalBindUnlink = "yes";
       GatewayPorts = "clientspecified";
     };
     hostKeys = [{

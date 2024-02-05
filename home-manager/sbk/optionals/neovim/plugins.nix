@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
 let
-  c = config.colorscheme.colors;
+  c = config.colorscheme.palette;
 in
 {
   programs.nixvim = {
@@ -140,7 +140,8 @@ in
         enable = true;
         servers = {
           nil_ls.enable = true;
-          svelte.enable = true; html.enable = true;
+          svelte.enable = true;
+          html.enable = true;
           cssls.enable = true;
           tsserver.enable = true;
           pyright.enable = true;

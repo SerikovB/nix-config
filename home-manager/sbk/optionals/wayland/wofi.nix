@@ -27,7 +27,7 @@ let
     esac
   '';
 
-  inherit (config.colorscheme) colors;
+  inherit (config.colorscheme) palette;
 in {
   programs.wofi = {
     enable = true;
@@ -47,7 +47,7 @@ in {
         font-size: 12pt;
       }
       window {
-        border: 2px solid #${colors.base03};
+        border: 2px solid #${palette.base03};
         border-radius: 7px;
       }
     '';

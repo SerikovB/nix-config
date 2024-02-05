@@ -16,7 +16,7 @@ in {
   imports = [inputs.nix-colors.homeManagerModule];
 
   # Colorscheme
-  colorscheme = lib.mkDefault colorSchemes.tokyo-nighr-dark;
+  colorscheme = lib.mkDefault colorSchemes.tokyo-night-dark;
 
   # Specialisation toggle with toggle-scheme script
   specialisation = {
@@ -41,7 +41,7 @@ in {
   gtk = {
     enable = true;
     font = {
-      name = config.fontProfiles;
+      name = config.fontProfiles.regular.family;
       size = 12;
     };
     theme = {
@@ -78,6 +78,7 @@ in {
         scheme = config.colorscheme;
         width = largestWidth;
         height = largestHeight;
+        logoScale = 4;
       };
     };
   };
@@ -120,7 +121,7 @@ in {
       else
         current="$(${
         lib.getExe pkgs.jq
-      } -re '.kind' "$HOME/.config/colorscheme.json")"
+      } -re '.variant' "$HOME/.config/colorscheme.json")"
         if [ "$current" = "light" ]; then
             theme="dark"
         else

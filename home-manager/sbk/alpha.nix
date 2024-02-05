@@ -15,6 +15,7 @@
     ./optionals/lf.nix
     ./optionals/neovim
     ./optionals/zathura.nix
+    ./optionals/zsh.nix
 
     # Wayland-specific
     ./optionals/wayland/foot.nix
@@ -23,7 +24,8 @@
     ./optionals/wayland/swayidle.nix
     ./optionals/wayland/swaylock.nix
     ./optionals/wayland/waybar.nix
-  ];
+    ./optionals/wayland/wofi.nix
+  ] ++ (builtins.attrValues outputs.homeManagerModules);
 
   home.packages = with pkgs; [
     # Programs
