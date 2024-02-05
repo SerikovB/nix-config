@@ -6,14 +6,8 @@
     inherit (config) home programs;
     packageNames = map (p: p.pname or p.name or null) home.packages;
     hasPackage = name: lib.any (x: x == name) packageNames;
-    hasRipgrep = hasPackage "ripgrep";
     hasExa = hasPackage "eza";
-    hasSpecialisationCli = hasPackage "specialisation";
     hasNeovim = programs.neovim.enable;
-    hasEmacs = programs.emacs.enable;
-    hasNeomutt = programs.neomutt.enable;
-    hasShellColor = programs.shellcolor.enable;
-    hasKitty = programs.kitty.enable;
 
   in {
     programs.zsh = {
@@ -37,8 +31,18 @@
         vi = mkIf hasNeovim "nvim";
         vim = mkIf hasNeovim "nvim";
 
-        cik = mkIf hasKitty "clone-in-kitty --type os-window";
+        nfu = "nix flake update $FLAKE";
+        hmf = "home-manager switch --flake $FLAKE";
+        nsf = "sudo nixos-rebuild switch --flake $FLAKE";
       };
+
+      plugins = [
+        {
+          name = "powerlavel10k";
+          src = pkgs.zsh-powerlevel10k;
+          file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+        }
+      ];
 
       initExtra = ''
         precmd() {
@@ -46,6 +50,8 @@
         }
         # Direnv
         eval "$(direnv hook zsh)"
+
+        export FLAKE=$HOME/.local/nix-config
       '';
     };
 }
