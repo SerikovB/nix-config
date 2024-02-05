@@ -41,8 +41,11 @@
       };
 
       initExtra = ''
-          # Direnv
-          eval "$(direnv hook zsh)"
+        precmd() {
+          print -Pn "\e]133;A\e\\"
+        }
+        # Direnv
+        eval "$(direnv hook zsh)"
       '';
     };
 }
