@@ -129,6 +129,9 @@ in {
         fi
       fi
       ${lib.getExe specialisation} "$theme"
+
+      ${pkgs.swww}/bin/swww kill
+      ${pkgs.swww}/bin/swww init
     '';
   in [specialisation toggle-theme];
 

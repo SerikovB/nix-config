@@ -9,6 +9,7 @@ in {
     settings = {
       main = {
         font = "${font}:size=12";
+        pad = "10x10 center";
       };
       colors = {
         bright0 = "${palette.base00}";
@@ -33,9 +34,6 @@ in {
         foreground = "${palette.base05}";
         background = "${palette.base00}";
         urls = "${palette.base04}";
-        selection_background = "${palette.base05}";
-        selection_foreground = "${palette.base00}";
-
       };
     };
   };

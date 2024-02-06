@@ -38,6 +38,8 @@
     ../optionals/xdg.nix
     ../optionals/zen-kernel.nix
     ../optionals/zsh.nix
+    ../optionals/xserver.nix
+
   ] ++ (builtins.attrValues outputs.nixosModules);
 
   nixpkgs = {

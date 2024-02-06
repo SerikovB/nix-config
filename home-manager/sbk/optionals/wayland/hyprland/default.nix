@@ -6,9 +6,9 @@
     inputs.hyprland.homeManagerModules.default
 
     # Settings
-    ./wm-binds.nix
     ./binds.nix
     ./exec.nix
+    ./wm-binds.nix
   ];
 
   home.packages = [
@@ -56,8 +56,7 @@
           size = 5;
           passes = 3;
           new_optimizations = true;
-          ignore_opacity = true;
-        };
+          ignore_opacity = true; };
         drop_shadow = true;
         shadow_range = 12;
         shadow_offset = "3 3";

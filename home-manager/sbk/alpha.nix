@@ -16,10 +16,12 @@
     ./optionals/neovim
     ./optionals/zathura.nix
     ./optionals/zsh.nix
+    ./settings-alpha/wayland.nix
 
     # Wayland-specific
     ./optionals/wayland/foot.nix
     ./optionals/wayland/hyprland
+    # ./optionals/wayland/kitty.nix
     ./optionals/wayland/mako.nix
     ./optionals/wayland/swayidle.nix
     ./optionals/wayland/swaylock.nix

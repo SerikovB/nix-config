@@ -7,4 +7,8 @@
       use-xdg-base-directories = true;
     };
   };
+
+  home.sessionVariables = {
+    FLAKE = "$HOME/.local/nix-config";
+  };
 }

@@ -45,13 +45,15 @@
       ];
 
       initExtra = ''
+        source $ZDOTDIR/.p10k.zsh
+
         precmd() {
           print -Pn "\e]133;A\e\\"
         }
         # Direnv
         eval "$(direnv hook zsh)"
 
-        export FLAKE=$HOME/.local/nix-config
+        export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
       '';
     };
 }

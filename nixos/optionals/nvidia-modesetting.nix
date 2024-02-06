@@ -8,5 +8,14 @@
 
     # Open-source drivers
     open = false;
+
+    prime = {
+      offload.enable = true;
+    };
+
+  };
+
+  services.xserver = {
+    videoDrivers = [ "nvidia" ];
   };
 }
