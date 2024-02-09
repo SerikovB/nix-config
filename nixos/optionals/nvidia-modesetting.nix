@@ -12,7 +12,6 @@
     prime = {
       offload.enable = true;
     };
-
   };
 
   services.xserver = {

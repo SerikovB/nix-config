@@ -24,7 +24,7 @@
     }
     {
       event = "FileType";
-      pattern = [ "nix" ];
+      pattern = [ "nix" "lean" ];
       command = "setlocal shiftwidth=2 tabstop=2 softtabstop=2";
       desc = "Nix file settings";
     }

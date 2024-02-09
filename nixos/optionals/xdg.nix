@@ -1,10 +1,9 @@
 # XDG configuations
 { pkgs, ... }: {
-  # xdg.portal = {
-  #   enable = true;
-  #   config.common.default = "*";
-  #   extraPortals = [
-  #     pkgs.xdg-desktop-portal-hyprland
-  #   ];
-  # };
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+    ];
+  };
 }

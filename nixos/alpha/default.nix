@@ -21,6 +21,7 @@
     # Options
     ../optionals/bluetooth.nix
     ../optionals/firewall.nix
+    ../optionals/flatpak.nix
     ../optionals/fonts.nix
     ../optionals/gamemode.nix
     ../optionals/greetd.nix
@@ -36,10 +37,9 @@
     ../optionals/systemd.nix
     ../optionals/tlp.nix
     ../optionals/xdg.nix
+    ../optionals/xserver.nix
     ../optionals/zen-kernel.nix
     ../optionals/zsh.nix
-    ../optionals/xserver.nix
-
   ] ++ (builtins.attrValues outputs.nixosModules);
 
   nixpkgs = {

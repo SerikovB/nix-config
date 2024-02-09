@@ -5,6 +5,11 @@ in
 {
   programs.nixvim = {
     plugins = {
+      lean = {
+        enable = true;
+        lsp.enable = true;
+      };
+
       lualine = {
         enable = true;
         theme = {
