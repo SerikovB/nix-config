@@ -41,6 +41,9 @@
 
     # Theming
     nix-colors.url = "github:misterio77/nix-colors";
+
+    # Impermanence
+    impermanence.url = "github:nix-community/impermanence";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:

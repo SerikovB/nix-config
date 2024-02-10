@@ -20,6 +20,7 @@
 
     # Options
     ../optionals/bluetooth.nix
+    ../optionals/ephemeral_zfs.nix
     ../optionals/firewall.nix
     ../optionals/flatpak.nix
     ../optionals/fonts.nix
