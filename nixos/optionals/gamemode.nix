@@ -1,5 +1,5 @@
 # Gamemode configuration
-{ ... }: {
+{ pkgs, ... }: {
   programs.gamemode = {
     enable = true;
     settings = {
@@ -11,6 +11,10 @@
         apply_gpu_optimisations = "accept-responsibility";
         gpu_device = 0;
         amd_performance_level = "high";
+      };
+      custom = {
+        start = "${pkgs.libnotify}/bin/norify-send 'GameMode Started'";
+        end = "${pkgs.libnotify}/bin/norify-send 'GameMode Ended'";
       };
     };
   };
