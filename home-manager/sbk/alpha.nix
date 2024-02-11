@@ -15,7 +15,7 @@
     ./optionals/lf.nix
     ./optionals/neovim
     ./optionals/zathura.nix
-    ./optionals/zsh.nix
+    ./optionals/zsh
     ./settings-alpha/wayland.nix
 
     # Wayland-specific

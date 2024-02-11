@@ -9,6 +9,6 @@
   };
 
   home.sessionVariables = {
-    FLAKE = "$HOME/.local/nix-config";
+    FLAKE = "$HOME/projects/nix-config";
   };
 }
