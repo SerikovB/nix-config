@@ -20,7 +20,7 @@
 
     # Options
     ../optionals/bluetooth.nix
-    ../optionals/ephemeral_zfs.nix
+    ../optionals/persist.nix
     ../optionals/firewall.nix
     ../optionals/flatpak.nix
     ../optionals/fonts.nix
@@ -35,7 +35,6 @@
     ../optionals/podman.nix
     ../optionals/ssh.nix
     ../optionals/systemd-boot.nix
-    ../optionals/systemd.nix
     ../optionals/tlp.nix
     ../optionals/xdg.nix
     ../optionals/xserver.nix
@@ -56,6 +55,7 @@
 
   # Enable some programs
   programs = {
+    git.enable = true;
     adb.enable = true;
     dconf.enable = true;
   };

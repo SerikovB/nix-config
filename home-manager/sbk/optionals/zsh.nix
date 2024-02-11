@@ -53,7 +53,6 @@
         # Direnv
         eval "$(direnv hook zsh)"
 
-        export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
-      '';
+        '';
     };
 }
