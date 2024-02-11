@@ -20,7 +20,7 @@ in {
     ];
   };
 
-  environment.persistence."/nix/persistence" = {
+  environment.persistence."/persist" = {
     users.sbk = {
       directories = [
         "desktop"

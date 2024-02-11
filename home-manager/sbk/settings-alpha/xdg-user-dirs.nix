@@ -1,5 +1,5 @@
 {...}: {
-  home.file."~/.config/user-dirs.dirs" = {
+  home.file.".config/user-dirs.dirs" = {
     enable = true;
     text = ''
       # This file is written by xdg-user-dirs-update

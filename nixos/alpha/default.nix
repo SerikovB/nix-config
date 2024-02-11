@@ -20,7 +20,6 @@
 
     # Options
     ../optionals/bluetooth.nix
-    ../optionals/persist.nix
     ../optionals/firewall.nix
     ../optionals/flatpak.nix
     ../optionals/fonts.nix
@@ -31,6 +30,7 @@
     ../optionals/nix.nix
     ../optionals/nvidia-modesetting.nix
     ../optionals/opengl.nix
+    ../optionals/persist.nix
     ../optionals/pipewire.nix
     ../optionals/podman.nix
     ../optionals/ssh.nix
