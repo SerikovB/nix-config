@@ -68,7 +68,7 @@ in {
   home.file = {
     ".config/colorscheme".text = config.colorscheme.slug;
     ".config/colorscheme.json".text = builtins.toJSON config.colorscheme;
-    "Pictures/wallpapers/default.png" = let
+    "pictures/wallpapers/default.png" = let
       largest = f: xs: builtins.head (builtins.sort (a: b: a > b) (map f xs));
       largestWidth = largest (x: x.width) config.monitors;
       largestHeight = largest (x: x.height) config.monitors;

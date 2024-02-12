@@ -8,6 +8,9 @@
       "/var/log"
       "/var/lib/nixos"
       "/var/lib/systemd/coredump"
+      "/etc/passwd.d"
+      "/etc/passwords"
+      "/etc/age"
     ];
     files = [
       "/etc/machine-id"

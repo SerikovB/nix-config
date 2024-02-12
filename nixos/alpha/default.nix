@@ -72,5 +72,6 @@
     };
   };
 
+  users.users.root.hashedPasswordFile = "/etc/passwords/root";
   system.stateVersion = "23.11";
 }

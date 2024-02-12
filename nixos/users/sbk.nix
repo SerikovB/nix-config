@@ -3,11 +3,7 @@ let
   ifTheyExist = groups:
     builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
 in {
-  imports = [
-    # Disable home-manager by commenting or removing
-    # inputs.home-manager.nixosModules.home-manager
-  ];
-
+  users.mutableUsers = false;
   users.defaultUserShell = pkgs.zsh;
   users.users.sbk = {
     isNormalUser = true;
@@ -18,6 +14,7 @@ in {
     openssh.authorizedKeys.keys = [
       "../../home-manager/sbk/id_ed25519.pub"
     ];
+    hashedPasswordFile = "/etc/passwords/sbk";
   };
 
   environment.persistence."/persist" = {
@@ -37,6 +34,8 @@ in {
         { directory = ".gnupg"; mode = "0700"; }
         { directory = ".ssh"; mode = "0700"; }
         { directory = ".local/share/keyrings"; mode = "0700"; }
+        { directory = ".local/state/nix"; mode = "0700"; }
+        { directory = ".local/state/home-manager"; mode = "0700"; }
         ".local/share/direnv"
       ];
     };

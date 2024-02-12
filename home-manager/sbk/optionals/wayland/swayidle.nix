@@ -28,7 +28,7 @@ in {
       # Lock screen
       [{
         timeout = lockTime;
-        command = "${swaylock} -i ~/Pictures/wallpapers/default.png --daemonize --grace 15";
+        command = "${swaylock} -i ~/pictures/wallpapers/default.png --daemonize --grace 15";
       }] ++
       # Mute mic
       (afterLockTimeout {
