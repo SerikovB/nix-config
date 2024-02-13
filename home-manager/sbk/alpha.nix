@@ -7,21 +7,19 @@
   imports = [
     # Settings
     ./settings-alpha
+    ./settings-alpha/wayland.nix
 
     # Optionals
     ./optionals/direnv.nix
-    ./optionals/firefox.nix
     ./optionals/git.nix
     ./optionals/lf.nix
     ./optionals/neovim
     ./optionals/zathura.nix
     ./optionals/zsh
-    ./settings-alpha/wayland.nix
 
     # Wayland-specific
     ./optionals/wayland/foot.nix
     ./optionals/wayland/hyprland
-    # ./optionals/wayland/kitty.nix
     ./optionals/wayland/mako.nix
     ./optionals/wayland/swayidle.nix
     ./optionals/wayland/swaylock.nix
