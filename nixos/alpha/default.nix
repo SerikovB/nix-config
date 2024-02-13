@@ -30,7 +30,6 @@
     ../optionals/nix.nix
     ../optionals/nvidia-modesetting.nix
     ../optionals/opengl.nix
-    ../optionals/persist.nix
     ../optionals/pipewire.nix
     ../optionals/podman.nix
     ../optionals/ssh.nix

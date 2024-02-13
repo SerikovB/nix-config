@@ -2,92 +2,53 @@
 # and may be overwritten by future invocations.  Please make changes
 # to /etc/nixos/configuration.nix instead.
 { config, lib, pkgs, modulesPath, ... }:
+
 {
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usb_storage" "sd_mod" "sdhci_pci" ];
-  boot.initrd.kernelModules = [ "usb_storage" ];
+  boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
+  boot.initrd.luks.devices = { 
+    "system" = {
+      device = "/dev/disk/by-uuid/0572d5e7-93cf-4b67-9c65-2bfa86ce707b";
+      allowDiscards = true;
+      keyFileSize = 4096;
+      keyFile = "/dev/sda";
+    };	
+    "data" = {
+      device = "/dev/disk/by-uuid/5f7b12a3-6035-4b1f-bd66-59c2233f8a02";
+      allowDiscards = true;
+      keyFileSize = 4096;
+      keyFile = "/dev/sda";
+    };
+  };
+
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/3b5a1263-3e00-4ede-8a7d-485e104d4740";
+    { device = "/dev/disk/by-uuid/a6ec0b0c-c915-49c9-b03d-4b18f1bdb187";
       fsType = "btrfs";
       options = [ "subvol=root" ];
     };
 
-  boot.initrd.luks.devices."system" = {
-    device = "/dev/disk/by-uuid/0572d5e7-93cf-4b67-9c65-2bfa86ce707b";
-    allowDiscards = true;
-    keyFileSize = 4096;
-    keyFile = "/dev/sda";
-  };
-
-  fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/3b5a1263-3e00-4ede-8a7d-485e104d4740";
-      fsType = "btrfs";
-      options = [ "subvol=nix" ];
-    };
-
-  fileSystems."/persist" =
-    { device = "/dev/disk/by-uuid/3b5a1263-3e00-4ede-8a7d-485e104d4740";
-      fsType = "btrfs";
-      options = [ "subvol=persist" ];
-      neededForBoot = true;
-    };
-
   fileSystems."/data" =
-    { device = "/dev/disk/by-uuid/40f24be7-08a3-44ae-ac9b-553bb4403e81";
+    { device = "/dev/disk/by-uuid/c5918927-a2dc-4d7e-be29-238d03162ef3";
       fsType = "btrfs";
       options = [ "subvol=data" ];
     };
 
 
-  boot.initrd.luks.devices."data" = {
-    device = "/dev/disk/by-uuid/5f7b12a3-6035-4b1f-bd66-59c2233f8a02";
-    allowDiscards = true;
-    keyFileSize = 4096;
-    keyFile = "/dev/sda";
-  };
-
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/1600-045D";
+    { device = "/dev/disk/by-uuid/5C51-FC7B";
       fsType = "vfat";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/3da985a1-1781-40e1-9f0e-5e48590c9d12"; }
+    [ { device = "/dev/disk/by-uuid/979f656e-f917-4410-8c83-651bbaaa5fc1"; }
     ];
-
-
-  # Rollback script
-  # boot.initrd.postDeviceCommands = lib.mkAfter ''
-  #   mkdir /btrfs_tmp
-  #   mount /dev/mapper/system /btrfs_tmp
-
-  #   if [[ -e /btrfs_tmp/root ]]; then
-  #     mkdir -p /btrfs_tmp/old_roots
-  #     timestamp=$(date --date="@$(stat -c %Y /btrfs_tmp/root)" "+%Y-%m-%-d_%H:%M:%S")
-  #     mv /btrfs_tmp/root "/btrfs_tmp/old_roots/$timestamp"
-  #   fi
-
-  #   delete_subvolume_rec() {
-  #     IFS=$'\n'
-  #     for i in $(btrfs subvolume list -o "$1" | cut -f 9- -d ' '); do
-  #       delete_subvolume_rec "/btrfs_tmp/$i"
-  #     done
-  #     btrfs subvolume delete "$1"
-  #   }
-
-  #   for i in $(find /btrfs_tmp/old_roots/ -maxdepth 1 -mtime +30); do
-  #     delete_subvolume_rec "$i"
-  #   done
-
-  #   btrfs subvolume create /btrfs_tmp/root
-  #   umount /btrfs_tmp
-  # '';
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
